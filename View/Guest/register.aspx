@@ -45,7 +45,7 @@
              </div>
              <asp:TextBox ID="confirmpassTxt" runat="server"></asp:TextBox>
         </div>
-        <asp:Button ID="registerBtn" runat="server" Text="Register" />
+        <asp:Button ID="registerBtn" runat="server" Text="Register" OnClick="registerBtn_Click" />
     </form>
 </body>
 </html>
