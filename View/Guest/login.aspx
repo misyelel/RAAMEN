@@ -24,8 +24,16 @@
              <div>
                   <asp:CheckBox ID="rememberCheckBox" runat="server" Text="Remember Me" />
              </div>
+             <div>
+                 <asp:Label ID="errorLbl" runat="server" ForeColor="Red" Visible="False"></asp:Label>
+             </div>
+             <div>
+                 <asp:Button ID="loginBtn" runat="server" Text="Login" OnClick="loginBtn_Click" />
+             </div>
+             <div>
+                 <a href="register.aspx">"Don't have an account? Register Now!"</a>
+             </div>
              
-             <asp:Button ID="loginBtn" runat="server" Text="Login" />
         </div>
     </form>
 </body>

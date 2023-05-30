@@ -15,24 +15,24 @@
                  <asp:Label ID="usernameLbl" runat="server" Text="Username"></asp:Label>
              </div>
              <asp:TextBox ID="usernameTxt" runat="server"></asp:TextBox>
-            <div>
-                 <asp:Label ID="errorLbl" runat="server" ForeColor="Red"></asp:Label>
-             </div>
+            
 
              <div>
                  <asp:Label ID="emailLbl" runat="server" Text="Email"></asp:Label>
              </div>
-             <asp:TextBox ID="emailTxt" runat="server"></asp:TextBox>
-             <div>
-                 <asp:Label ID="ErrorLbl2" runat="server" ForeColor="Red"></asp:Label>
-             </div>
-
+                <asp:TextBox ID="emailTxt" runat="server"></asp:TextBox>
+           
             <div>
                  <asp:Label ID="genderLbl" runat="server" Text="Gender"></asp:Label>
              </div>
             <div>
-                <asp:RadioButton ID="maleBtn" runat="server" Text="Male" />
-                <asp:RadioButton ID="femaleBtn" runat="server" Text="Female" />
+              <%--  <asp:RadioButtonList ID="genderRadio" runat="server">
+                   <asp:ListItem Text="Male" Value="male"></asp:ListItem>
+                   <asp:ListItem Text="Female" Value="female"></asp:ListItem>
+                </asp:RadioButtonList>--%>
+                <asp:radiobutton id="maleRadio" groupname="genders" runat="server" text="Male" value="1"/>
+                <asp:radiobutton id="femaleRadio" groupname="genders" runat="server" text="Female" value="2" />
+              
             </div>
             
 
@@ -43,9 +43,18 @@
              <div>
                  <asp:Label ID="confirmpassLbl" runat="server" Text="Confirmation Password"></asp:Label>
              </div>
-             <asp:TextBox ID="confirmpassTxt" runat="server"></asp:TextBox>
+                <asp:TextBox ID="confirmpassTxt" runat="server"></asp:TextBox>
+            </div>
+            <div>
+                 <asp:Label ID="errorLbl" runat="server" ForeColor="Red" Visible="False"></asp:Label>
+             </div>
+        <div>
+             <asp:Button ID="registerBtn" runat="server" Text="Register" OnClick="registerBtn_Click" />
         </div>
-        <asp:Button ID="registerBtn" runat="server" Text="Register" OnClick="registerBtn_Click" />
+       
+            <div>
+                 <a href="login.aspx">"Already have an account? Login here"</a>
+             </div>
     </form>
 </body>
 </html>

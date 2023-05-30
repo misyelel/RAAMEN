@@ -34,7 +34,7 @@ namespace LABPSD_RAAMEN.Controller
 
         public static bool checkEmail(string email)
         {
-            if (validate(@"\.com$", email) == false)
+            if (validate(@".+\.com$", email) == false)
             {
                 return false;
             }
@@ -43,6 +43,10 @@ namespace LABPSD_RAAMEN.Controller
 
         public static bool confirmPassword(string password, string confirmPass)
         {
+            if(password=="" || confirmPass == "")
+            {
+                return false;
+            }
             if (password.Equals(confirmPass) == false)
             {
                 return false;
@@ -64,14 +68,26 @@ namespace LABPSD_RAAMEN.Controller
         //}
 
 
-        public static bool checkRegistration(string username, string email, string password, string confirmPass)
-        {
-            if (checkUsername(username) == true && checkEmail(email) == true && confirmPassword(password, confirmPass) == true)
+        public static string checkRegistration(string username, string email, string password, string confirmPass)
+        {            
+            if (checkUsername(username)==false)
             {
-                return true;
+                return "Username must consists of 5 to 15 alphabets";
+            }
+            else if (checkEmail(email) == false)
+            {
+                return "Must ends with .com";
+            }
+            else if (confirmPassword(password, confirmPass) == false)
+            {
+                return "Passwords must be the same";
+            }
+            else if (checkUsername(username) == true && checkEmail(email) == true && confirmPassword(password, confirmPass) == true)
+            {
+                return "true";
             }
 
-            return false;
+            return "false";
         }
     }
 }

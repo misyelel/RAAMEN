@@ -18,6 +18,7 @@ namespace LABPSD_RAAMEN.Factory
             u.email = email;
             u.gender = gender;
             u.password = password;
+            u.roleID = 3;
             return u;
         }
     }
