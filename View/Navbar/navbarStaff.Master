@@ -19,6 +19,10 @@
                 <asp:Button ID="logoutBtn" runat="server" Text="Logout" />
             </asp:ContentPlaceHolder>
         </div>
+        <div class="content">
+            <asp:ContentPlaceHolder ID="contentBody" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
     </form>
 </body>
 </html>
