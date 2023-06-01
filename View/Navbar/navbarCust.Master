@@ -12,10 +12,10 @@
     <form id="navbarCust" runat="server">
         <div class="navbar">
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-                <asp:Button ID="orderRamenBtn" runat="server" Text="Order Ramen" />
-                <asp:Button ID="historyBtn" runat="server" Text="History" />
-                <asp:Button ID="profileBtn" runat="server" Text="Profile" />
-                <asp:Button ID="logoutBtn" runat="server" Text="Logout" />
+                <asp:Button ID="orderRamenBtn" runat="server" Text="Order Ramen" onclick="orderRamenBtn_Click"/>
+                <asp:Button ID="historyBtn" runat="server" Text="History" OnClick="historyBtn_Click" />
+                <asp:Button ID="profileBtn" runat="server" Text="Profile" onclick="profileBtn_Click"/>
+                <asp:Button ID="logoutBtn" runat="server" Text="Logout" OnClick="logoutBtn_Click" />
             </asp:ContentPlaceHolder>
         </div>
         <div class="content">
