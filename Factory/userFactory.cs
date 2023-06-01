@@ -4,7 +4,9 @@ using System.Linq;
 using System.Web;
 using LABPSD_RAAMEN.Model;
 using LABPSD_RAAMEN.Repository;
+using LABPSD_RAAMEN.Controller;
 using LABPSD_RAAMEN.Handler;
+
 namespace LABPSD_RAAMEN.Factory
 {
     public class userFactory
@@ -13,7 +15,7 @@ namespace LABPSD_RAAMEN.Factory
         public static user AddUser(string username, string email, string gender, string password)
         {
             user u = new user();
-            u.Id = UserHandler.generateUserId();
+            u.Id = UserController.generateUserId();
             u.username = username;
             u.email = email;
             u.gender = gender;

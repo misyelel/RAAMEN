@@ -13,6 +13,23 @@ namespace LABPSD_RAAMEN.Controller
     public class UserController
     {
         static Database1Entities db = DBSingleton.GetInstance();
+
+        private static Random random = new Random();
+        public static int generateUserId()
+        {
+
+            int id = 0;
+            bool unique = false;
+            while (unique == false)
+            {
+                id = random.Next();
+                unique = UserHandler.checkId(id);
+            }
+
+            return id;
+        }
+
+       
         public static bool validate(string pattern, string input)
         {
             return Regex.IsMatch(input, pattern);
@@ -53,20 +70,6 @@ namespace LABPSD_RAAMEN.Controller
             }
             return true;
         }
-
-        //public static bool checkGender(RadioButton male, RadioButton female)
-        //{
-        //    if (male.Checked == false && female.Checked == false)
-        //    {
-        //        return false;
-        //    }
-        //    else if (male.Checked == true && female.Checked == true)
-        //    {
-        //        return false;
-        //    }
-        //    return true;
-        //}
-
 
         public static string checkRegistration(string username, string email, string password, string confirmPass)
         {            
