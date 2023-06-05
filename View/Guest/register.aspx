@@ -26,10 +26,6 @@
                  <asp:Label ID="genderLbl" runat="server" Text="Gender"></asp:Label>
              </div>
             <div>
-              <%--  <asp:RadioButtonList ID="genderRadio" runat="server">
-                   <asp:ListItem Text="Male" Value="male"></asp:ListItem>
-                   <asp:ListItem Text="Female" Value="female"></asp:ListItem>
-                </asp:RadioButtonList>--%>
                 <asp:radiobutton id="maleRadio" groupname="genders" runat="server" text="Male" value="1"/>
                 <asp:radiobutton id="femaleRadio" groupname="genders" runat="server" text="Female" value="2" />
               
