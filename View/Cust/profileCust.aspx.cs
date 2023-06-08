@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data.Entity;
 using LABPSD_RAAMEN.Model;
 using LABPSD_RAAMEN.Factory;
 using LABPSD_RAAMEN.Handler;
@@ -17,8 +18,11 @@ namespace LABPSD_RAAMEN.View
         static Database1Entities db = DBSingleton.GetInstance();
         protected void Page_Load(object sender, EventArgs e)
         {
-            user u = (user)Session["user"];
-            showData(u);
+            if (!IsPostBack)
+            {
+                user u = (user)Session["user"];
+                showData(u);
+            }
         }
 
         protected void editProfileButton_Click(object sender, EventArgs e)
@@ -49,12 +53,13 @@ namespace LABPSD_RAAMEN.View
             {
                 user uid = (user)Session["user"];
                 user u = db.users.Find(uid.Id);
-                u.username = usernameTxt.Text;
-                u.email = emailTxt.Text;
+                u.username = usernameTxt.Text.ToString();
+                u.email = emailTxt.Text.ToString();
                 u.gender = CheckGender();
-                u.password = passwordTxt.Text;
+                u.password = passwordTxt.Text.ToString();
                 DataBind();
                 db.SaveChanges();
+                showData(u);
                 disableAll();
             }
             else if (errorMsg == "false")
@@ -67,6 +72,7 @@ namespace LABPSD_RAAMEN.View
         protected void cancelButton_Click(object sender, EventArgs e)
         {
             user u = (user)Session["user"];
+            disableAll();
             showData(u);
         }
 
@@ -107,19 +113,22 @@ namespace LABPSD_RAAMEN.View
             passwordTxt.Enabled = false;
             confirmpassLbl.Visible = false;
             confirmpassTxt.Visible = false;
-            editProfileButton.Visible = false;
+            errorLbl.Visible = false;
+            saveChangesButton.Visible = false;
+            cancelButton.Visible = false;
+            editProfileButton.Visible = true;
         }
 
         protected string CheckGender()
         {
             string gender = null;
-            if (maleBtn.Text.Equals("Male"))
+            if (maleBtn.Checked)
             {
-                gender = maleBtn.Text;
+                gender = maleBtn.Text.ToString();
             }
-            else if (femaleBtn.Text.Equals("Female"))
+            else if (femaleBtn.Checked)
             {
-                gender = femaleBtn.Text;
+                gender = femaleBtn.Text.ToString();
             }
             return gender;
         }
