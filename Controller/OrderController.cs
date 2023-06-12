@@ -23,10 +23,6 @@ namespace LABPSD_RAAMEN.Controller
             return id;
         }
 
-        //public static bool checkCartExists()
-        //{
-
-        //}
 
     }
 }

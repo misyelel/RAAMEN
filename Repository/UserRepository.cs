@@ -9,7 +9,7 @@ namespace LABPSD_RAAMEN.Repository
 {
     public class UserRepository
     {
-        static Database1Entities db = DBSingleton.GetInstance();
+        static Database1Entities1 db = DBSingleton.GetInstance();
         public static user GetUserById(int id)
         {
             user u = db.users.Where(x => x.Id == id).FirstOrDefault();

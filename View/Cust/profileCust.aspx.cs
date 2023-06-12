@@ -15,7 +15,7 @@ namespace LABPSD_RAAMEN.View
 {
     public partial class profile : System.Web.UI.Page
     {
-        static Database1Entities db = DBSingleton.GetInstance();
+        static Database1Entities1 db = DBSingleton.GetInstance();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)

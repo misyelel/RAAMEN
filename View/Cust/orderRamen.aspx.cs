@@ -15,51 +15,53 @@ namespace LABPSD_RAAMEN.View
 {
     public partial class orderRamen : System.Web.UI.Page
     {
-        static Database1Entities db = DBSingleton.GetInstance();
         protected void Page_Load(object sender, EventArgs e)
         {
-            user u = (user)Session["user"];
-            ramenGridView.DataSource = RamenRepository.GetAllRamen();
-            ramenGridView.DataBind();
-
-            //cartGridView.DataSource = OrderHandler.GetUserCart(u.Id);
-            //cartGridView.DataBind();
+            if (!IsPostBack)
+            {
+                user u = (user)Session["user"];
+                ramenGridView.DataSource = RamenRepository.GetAllRamen();
+                ramenGridView.DataBind();
+            }
+            
         }
 
         protected void ramenGridView_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int rowIndex = Convert.ToInt32(e);
+            user u = (user)Session["user"];
+            GridViewRow selectedRow = ramenGridView.SelectedRow;
+            int ramenId = int.Parse(selectedRow.Cells[0].Text);
+            header h = (header)Session["cart"];
 
-            // Access the input data from GridView1
-            GridViewRow row = ramenGridView.Rows[rowIndex];
-            raman r = RamenHandler.FindRamen(row.Cells[0].Text);
-
-            // Add data to GridView2
-            DataTable dt = GetCartGridViewData();
-            dt.Rows.Add(r.name, 1, r.price);
-            cartGridView.DataSource = dt;
-            cartGridView.DataBind();
-        }
-        protected DataTable GetCartGridViewData()
-        {
-            DataTable dt = new DataTable();
-            // Define your columns
-            dt.Columns.Add("Ramen");
-            dt.Columns.Add("Quantity");
-            dt.Columns.Add("Price");
-
-            // Retrieve existing data from GridView2, if any
-            if (cartGridView.DataSource != null)
+            if (h != null)
             {
-                dt = (DataTable)cartGridView.DataSource;
+                
+            }
+            else
+            {
+                Session["cart"] = OrderFactory.AddHeaderFromUser(u.Id);
+                List<detail> details = new List<detail>();
+                Session["order"] = details;
             }
 
-            return dt;
+            h = (header)Session["cart"];
+            List<detail> orderDetails = (List<detail>)Session["order"];
+
+            if (OrderRepository.FindRamen(h.Id, ramenId) != null)
+            {
+                detail d = OrderRepository.FindRamen(h.Id, ramenId);
+                d.quantity++;
+            }
+            else
+            {
+                orderDetails.Add(OrderFactory.AddDetail(h.Id, ramenId, 1));
+                Session["order"] = orderDetails;
+            }
         }
 
-        protected void ramenGridView_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
+        protected void cartBtn_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("Cartpage.aspx");
         }
     }
 }

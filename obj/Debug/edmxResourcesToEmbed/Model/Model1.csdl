@@ -3,6 +3,7 @@
   <EntityType Name="detail">
     <Key>
       <PropertyRef Name="headerID" />
+      <PropertyRef Name="ramenID" />
     </Key>
     <Property Name="headerID" Type="Int32" Nullable="false" />
     <Property Name="ramenID" Type="Int32" Nullable="false" />
@@ -18,7 +19,7 @@
     <Property Name="customerID" Type="Int32" Nullable="false" />
     <Property Name="staffID" Type="Int32" Nullable="false" />
     <Property Name="date" Type="DateTime" Nullable="false" Precision="0" />
-    <NavigationProperty Name="detail" Relationship="Self.FK_detail_ToheaderID" FromRole="header" ToRole="detail" />
+    <NavigationProperty Name="details" Relationship="Self.FK_detail_ToheaderID" FromRole="header" ToRole="detail" />
     <NavigationProperty Name="user" Relationship="Self.FK_header_TocustomerID" FromRole="header" ToRole="user" />
   </EntityType>
   <EntityType Name="meat">
@@ -33,7 +34,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="meatID" Type="Int32" Nullable="false" />
     <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="broth" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
@@ -64,7 +65,7 @@
   </EntityType>
   <Association Name="FK_detail_ToheaderID">
     <End Role="header" Type="Self.header" Multiplicity="1" />
-    <End Role="detail" Type="Self.detail" Multiplicity="0..1" />
+    <End Role="detail" Type="Self.detail" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="header">
         <PropertyRef Name="Id" />
@@ -122,7 +123,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="Database1Entities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="Database1Entities1" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="details" EntityType="Self.detail" />
     <EntitySet Name="headers" EntityType="Self.header" />
     <EntitySet Name="meats" EntityType="Self.meat" />

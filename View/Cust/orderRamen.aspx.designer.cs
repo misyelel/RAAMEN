@@ -15,6 +15,15 @@ namespace LABPSD_RAAMEN.View
     {
 
         /// <summary>
+        /// cartBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button cartBtn;
+
+        /// <summary>
         /// ramenGridView control.
         /// </summary>
         /// <remarks>
@@ -22,14 +31,5 @@ namespace LABPSD_RAAMEN.View
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView ramenGridView;
-
-        /// <summary>
-        /// cartGridView control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView cartGridView;
     }
 }

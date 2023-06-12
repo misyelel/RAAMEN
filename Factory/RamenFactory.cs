@@ -9,6 +9,6 @@ namespace LABPSD_RAAMEN.Factory
 {
     public class RamenFactory
     {
-        static Database1Entities db = DBSingleton.GetInstance();
+
     }
 }

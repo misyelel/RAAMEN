@@ -11,7 +11,6 @@ namespace LABPSD_RAAMEN.Factory
 {
     public class userFactory
     {
-        Database1Entities db = DBSingleton.GetInstance();
         public static user AddUser(string username, string email, string gender, string password)
         {
             user u = new user();

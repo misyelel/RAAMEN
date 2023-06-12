@@ -14,12 +14,19 @@ namespace LABPSD_RAAMEN.Model
     
     public partial class header
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public header()
+        {
+            this.details = new HashSet<detail>();
+        }
+    
         public int Id { get; set; }
         public int customerID { get; set; }
         public int staffID { get; set; }
         public System.DateTime date { get; set; }
     
-        public virtual detail detail { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<detail> details { get; set; }
         public virtual user user { get; set; }
     }
 }

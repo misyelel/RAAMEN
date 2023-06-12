@@ -12,8 +12,6 @@ namespace LABPSD_RAAMEN.Controller
 {
     public class UserController
     {
-        static Database1Entities db = DBSingleton.GetInstance();
-
         private static Random random = new Random();
         public static int generateUserId()
         {
