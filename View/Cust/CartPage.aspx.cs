@@ -1,0 +1,66 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using LABPSD_RAAMEN.Model;
+using LABPSD_RAAMEN.Repository;
+using LABPSD_RAAMEN.Handler;
+using LABPSD_RAAMEN.Factory;
+using LABPSD_RAAMEN.Controller;
+
+namespace LABPSD_RAAMEN.View.Cust
+{
+    public partial class CartPage : System.Web.UI.Page
+    {
+        static Database1Entities1 db = DBSingleton.GetInstance();
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+                user u = (user)Session["user"];
+                header h = (header)Session["cart"];
+                List<detail> orderDetails = (List<detail>)Session["order"];
+                if (h != null)
+                {
+                    cartGridView.Visible = true;
+                    checkoutBtn.Visible = true;
+
+                    cartGridView.DataSource = orderDetails;
+                    cartGridView.DataBind();
+                }
+                else
+                {
+                    statusLabel.Visible = true;
+                    cartGridView.Visible = false;
+                    checkoutBtn.Visible = false;
+                }
+            }
+
+        }
+
+        protected void checkoutBtn_Click(object sender, EventArgs e)
+        {
+            header h = (header)Session["cart"];
+            List<detail> orderDetails = (List<detail>)Session["order"];
+
+            db.headers.Add(h);
+            DataBind();
+            db.SaveChanges();
+
+            db.details.AddRange(orderDetails);
+            DataBind();
+            db.SaveChanges();
+
+            Session.Remove("cart");
+            Session.Remove("order");
+            Response.Redirect("orderRamen.aspx");
+        }
+
+        protected void backBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("orderRamen.aspx");
+        }
+    }
+}

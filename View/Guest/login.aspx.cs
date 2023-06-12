@@ -14,15 +14,18 @@ namespace LABPSD_RAAMEN.View
 {
     public partial class login : System.Web.UI.Page
     {
-        static Database1Entities db = DBSingleton.GetInstance();
         protected void Page_Load(object sender, EventArgs e)
         {
-            HttpCookie cookie = Request.Cookies["user_cookie"];
-            if (cookie != null)
+            if (!IsPostBack)
             {
-                usernameTxt.Text = cookie.Values["username"];
-                passwordTxt.Text = cookie.Values["password"];
+                HttpCookie cookie = Request.Cookies["user_cookie"];
+                if (cookie != null)
+                {
+                    usernameTxt.Text = cookie.Values["username"];
+                    passwordTxt.Text = cookie.Values["password"];
+                }
             }
+            
         }
 
         protected void loginBtn_Click(object sender, EventArgs e)

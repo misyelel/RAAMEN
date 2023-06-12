@@ -11,7 +11,7 @@ namespace LABPSD_RAAMEN.Handler
     public class UserHandler
     {       
 
-        static Database1Entities db = DBSingleton.GetInstance();
+        static Database1Entities1 db = DBSingleton.GetInstance();
 
         public static bool checkId(int id)
         {

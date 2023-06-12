@@ -11,7 +11,7 @@ namespace LABPSD_RAAMEN.Repository
 {
     public class OrderRepository
     {
-        static Database1Entities db = DBSingleton.GetInstance();
+        static Database1Entities1 db = DBSingleton.GetInstance();
         public static List<header> GetActiveOrders()
         {
             List<header> h = db.headers.Where(x => x.staffID.Equals(null)).ToList();
@@ -33,6 +33,12 @@ namespace LABPSD_RAAMEN.Repository
         public static List<detail> GetDetailsByHeaderId(int headerId)
         {
             List<detail> d = db.details.Where(x => x.headerID == headerId).ToList();
+            return d;
+        }
+
+        public static detail FindRamen(int headerId, int ramenId)
+        {
+            detail d = db.details.Where(x => x.ramenID == ramenId && x.headerID == headerId).FirstOrDefault();
             return d;
         }
     }

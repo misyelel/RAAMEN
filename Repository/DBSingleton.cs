@@ -13,14 +13,14 @@ namespace LABPSD_RAAMEN.Repository
         //Otomatis tiap object beda atribut
         //Kalau pake singleton, cuma mau satu object aja yang dipakai
 
-        static Database1Entities db = null;
+        static Database1Entities1 db = null;
        
 
-        public static Database1Entities GetInstance()
+        public static Database1Entities1 GetInstance()
         {
             if (db == null)
             {
-                db = new Database1Entities();
+                db = new Database1Entities1();
 
             }
             return db;

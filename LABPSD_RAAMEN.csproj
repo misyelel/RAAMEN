@@ -81,8 +81,8 @@
     </Content>
     <Content Include="Model\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
       <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Model\Model1.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -95,6 +95,7 @@
     <Content Include="View\Admin\OrderQueue.aspx" />
     <Content Include="View\Admin\Profile.aspx" />
     <Content Include="View\Admin\Report.aspx" />
+    <Content Include="View\Cust\CartPage.aspx" />
     <Content Include="View\Cust\historyCust.aspx" />
     <Content Include="View\Cust\Home.aspx" />
     <Content Include="View\Guest\login.aspx" />
@@ -110,6 +111,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\OrderController.cs" />
+    <Compile Include="Controller\RamenController.cs" />
     <Compile Include="Controller\UserController.cs" />
     <Compile Include="Factory\OrderFactory.cs" />
     <Compile Include="Factory\RamenFactory.cs" />
@@ -196,6 +198,13 @@
     </Compile>
     <Compile Include="View\Admin\Report.aspx.designer.cs">
       <DependentUpon>Report.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Cust\CartPage.aspx.cs">
+      <DependentUpon>CartPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Cust\CartPage.aspx.designer.cs">
+      <DependentUpon>CartPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\Cust\historyCust.aspx.cs">
       <DependentUpon>historyCust.aspx</DependentUpon>

@@ -12,18 +12,17 @@ namespace LABPSD_RAAMEN.Factory
 
     public class OrderFactory
     {
-        static Database1Entities db = DBSingleton.GetInstance();
-
-        public header AddHeaderFromUser(int id, int customerId, DateTime date)
+        public static header AddHeaderFromUser(int customerId)
         {
             header h = new header();
-            h.Id = id;
+            h.Id = OrderController.generateHeaderId();
             h.customerID = customerId;
-            h.date = date;
+            h.staffID = 2;
+            h.date = DateTime.Now;
             return h;
         }
 
-        public detail AddDetail(int headerId, int ramenId, int quantity)
+        public static detail AddDetail(int headerId, int ramenId, int quantity)
         {
             detail d = new detail();
             d.headerID = headerId;
@@ -31,5 +30,11 @@ namespace LABPSD_RAAMEN.Factory
             d.quantity = quantity;
             return d;
         }
+
+        //public static List<detail> AddDetailRange(int headerId)
+        //{
+        //    List<detail> details = new List<detail>();
+
+        //}
     }
 }

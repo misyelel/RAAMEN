@@ -14,7 +14,7 @@ namespace LABPSD_RAAMEN.View.Staff
 {
     public partial class Home : System.Web.UI.Page
     {
-        static Database1Entities db = DBSingleton.GetInstance();
+        static Database1Entities1 db = DBSingleton.GetInstance();
         protected void Page_Load(object sender, EventArgs e)
         {
             List<user> users = db.users.Where(x=>x.roleID==3).ToList();

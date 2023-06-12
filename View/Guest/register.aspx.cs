@@ -14,7 +14,7 @@ namespace LABPSD_RAAMEN.View
 {
     public partial class register : System.Web.UI.Page
     {
-        Database1Entities db = DBSingleton.GetInstance();
+        Database1Entities1 db = DBSingleton.GetInstance();
         protected void Page_Load(object sender, EventArgs e)
         {
 
