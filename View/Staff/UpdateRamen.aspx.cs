@@ -47,13 +47,24 @@ namespace LABPSD_RAAMEN.View.Staff
             string broth = txtBroth.Text.ToString();
             string price = txtPrice.Text.ToString();
 
-            raman updateRamen = db.ramen.Find(updateID);
-            updateRamen.name = name;
-            updateRamen.meatID = meatId;
-            updateRamen.broth = broth;
-            updateRamen.price = price;
+            bool isValid = StaffHandler.ValidateInput(name, meatName, broth, int.Parse(price));
 
-            db.SaveChanges();
+            if (isValid)
+            {
+                raman updateRamen = db.ramen.Find(updateID);
+                updateRamen.name = name;
+                updateRamen.meatID = meatId;
+                updateRamen.broth = broth;
+                updateRamen.price = price;
+
+                db.SaveChanges();
+            }
+            else
+            {
+                // Tindakan yang akan diambil jika validasi gagal
+                lblError.Text = StaffHandler.GetErrorMessage(name, meatName, broth, int.Parse(price));
+            }
+
         }
     }
 }
