@@ -14,7 +14,7 @@
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 <asp:Button ID="manageRamenBtn" runat="server" Text="Manage Ramen" />
                 <asp:Button ID="orderQBtn" runat="server" Text="Order Queue" />
-                <asp:Button ID="reportBtn" runat="server" Text="Report" />
+                <asp:Button ID="reportBtn" runat="server" Text="Report" OnClick="reportBtn_Click" />
                 <asp:Button ID="historyBtn" runat="server" Text="History" />
                 <asp:Button ID="profileBtn" runat="server" Text="Profile" />
                 <asp:Button ID="logoutBtn" runat="server" Text="Logout" />

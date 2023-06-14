@@ -13,5 +13,15 @@ namespace LABPSD_RAAMEN.View
         {
 
         }
+
+        protected void homeBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("../Staff/Home.aspx");
+        }
+
+        protected void manageRamenBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("../Staff/ManageRamen.aspx");
+        }
     }
 }

@@ -12,8 +12,8 @@
     <form id="form1" runat="server">
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-                <asp:Button ID="homeBtn" runat="server" Text="Home" />
-                <asp:Button ID="manageRamenBtn" runat="server" Text="Manage Ramen" />
+                <asp:Button ID="homeBtn" runat="server" Text="Home" OnClick="homeBtn_Click" />
+                <asp:Button ID="manageRamenBtn" runat="server" Text="Manage Ramen" OnClick="manageRamenBtn_Click" />
                 <asp:Button ID="orderQBtn" runat="server" Text="Order Queue" />
                 <asp:Button ID="profileBtn" runat="server" Text="Profile" />
                 <asp:Button ID="logoutBtn" runat="server" Text="Logout" />
