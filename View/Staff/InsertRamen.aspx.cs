@@ -38,11 +38,12 @@ namespace LABPSD_RAAMEN.View.Staff
 
             if (isPriceValid)
             {
-                isValid = StaffHandler.ValidateInput(txtName.Text, ddlMeat.SelectedValue, txtBroth.Text, price);
+                isValid = StaffController.ValidateInput(txtName.Text, ddlMeat.SelectedValue, txtBroth.Text, price);
                 if (isValid) Controller.RamenController.InsertRamenToTable(id, ddlMeat.SelectedValue, txtName.Text, txtBroth.Text, price.ToString());
+                lblError.Text = "Insert Ramen Sucess!!!";
             }
 
-            if (!isValid) lblError.Text = StaffHandler.GetErrorMessage(txtName.Text, ddlMeat.SelectedValue, txtBroth.Text, price);
+            if (!isValid) lblError.Text = StaffController.GetErrorMessage(txtName.Text, ddlMeat.SelectedValue, txtBroth.Text, price);
             else if (!isPriceValid) lblError.Text = "Invalid price format";
 
         }

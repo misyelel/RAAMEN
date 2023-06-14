@@ -35,7 +35,6 @@ namespace LABPSD_RAAMEN.Controller
         }
         public static bool InsertRamenToTable(int id, string meat, string name, string broth, string price)
         {
-
             try
             {
                 int meatId = GetMeatIdByName(meat);

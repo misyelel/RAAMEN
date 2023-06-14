@@ -23,5 +23,21 @@ namespace LABPSD_RAAMEN.View
         {
             Response.Redirect("../Staff/ManageRamen.aspx");
         }
+
+        protected void profileBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("../Staff/Profile.aspx");
+        }
+
+        protected void logoutBtn_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Response.Redirect("../Guest/login.aspx");
+        }
+
+        protected void orderQBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("../Staff/OrderQueue.aspx");
+        }
     }
 }

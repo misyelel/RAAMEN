@@ -33,5 +33,26 @@ namespace LABPSD_RAAMEN.View.Staff
 
             Response.Redirect("../Staff/UpdateRamen.aspx?ID="+id);
         }
+
+        protected void ramenGridView_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            try
+            {
+                GridViewRow row = ramenGridView.Rows[e.RowIndex];
+                int id = Convert.ToInt32(row.Cells[0].Text);
+
+                raman rm = db.ramen.Find(id);
+                db.ramen.Remove(rm);
+                db.SaveChanges();
+
+                ramenGridView.DataSource = StaffRepository.GetAllRamen();
+                ramenGridView.DataBind();
+            }
+            catch (Exception ex)
+            {
+                lblError.Text = "Data tersebut tidak dapat dihapus, karena sedang digunakan!";
+            }
+
+        }
     }
 }

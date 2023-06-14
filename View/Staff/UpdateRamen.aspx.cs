@@ -47,7 +47,7 @@ namespace LABPSD_RAAMEN.View.Staff
             string broth = txtBroth.Text.ToString();
             string price = txtPrice.Text.ToString();
 
-            bool isValid = StaffHandler.ValidateInput(name, meatName, broth, int.Parse(price));
+            bool isValid = StaffController.ValidateInput(name, meatName, broth, int.Parse(price));
 
             if (isValid)
             {
@@ -62,7 +62,7 @@ namespace LABPSD_RAAMEN.View.Staff
             else
             {
                 // Tindakan yang akan diambil jika validasi gagal
-                lblError.Text = StaffHandler.GetErrorMessage(name, meatName, broth, int.Parse(price));
+                lblError.Text = StaffController.GetErrorMessage(name, meatName, broth, int.Parse(price));
             }
 
         }

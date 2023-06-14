@@ -108,6 +108,7 @@
     <Content Include="View\Staff\InsertRamen.aspx" />
     <Content Include="View\Staff\Logout.aspx" />
     <Content Include="View\Staff\ManageRamen.aspx" />
+    <Content Include="View\Staff\OrderHandled.aspx" />
     <Content Include="View\Staff\OrderQueue.aspx" />
     <Content Include="View\Staff\Profile.aspx" />
     <Content Include="View\Staff\UpdateRamen.aspx" />
@@ -117,6 +118,7 @@
     <Compile Include="Controller\GenerateID.cs" />
     <Compile Include="Controller\OrderController.cs" />
     <Compile Include="Controller\RamenController.cs" />
+    <Compile Include="Controller\StaffController.cs" />
     <Compile Include="Controller\UserController.cs" />
     <Compile Include="Factory\OrderFactory.cs" />
     <Compile Include="Factory\RamenFactory.cs" />
@@ -318,6 +320,13 @@
     </Compile>
     <Compile Include="View\Staff\ManageRamen.aspx.designer.cs">
       <DependentUpon>ManageRamen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Staff\OrderHandled.aspx.cs">
+      <DependentUpon>OrderHandled.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Staff\OrderHandled.aspx.designer.cs">
+      <DependentUpon>OrderHandled.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\Staff\OrderQueue.aspx.cs">
       <DependentUpon>OrderQueue.aspx</DependentUpon>
