@@ -13,5 +13,10 @@ namespace LABPSD_RAAMEN.View
         {
 
         }
+
+        protected void reportBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("../Admin/transactionsReport.aspx");
+        }
     }
 }
