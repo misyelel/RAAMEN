@@ -110,6 +110,7 @@
     <Content Include="View\Staff\ManageRamen.aspx" />
     <Content Include="View\Staff\OrderQueue.aspx" />
     <Content Include="View\Staff\Profile.aspx" />
+    <Content Include="View\Staff\UpdateRamen.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -331,6 +332,13 @@
     </Compile>
     <Compile Include="View\Staff\Profile.aspx.designer.cs">
       <DependentUpon>Profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Staff\UpdateRamen.aspx.cs">
+      <DependentUpon>UpdateRamen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Staff\UpdateRamen.aspx.designer.cs">
+      <DependentUpon>UpdateRamen.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

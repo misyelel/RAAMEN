@@ -26,5 +26,27 @@ namespace LABPSD_RAAMEN.Repository
             return m;
                 
         }
+
+        public static string GetMeatNameById(int meatId)
+        {
+            meat selectedMeat = db.meats.FirstOrDefault(m => m.Id == meatId);
+            if (selectedMeat != null)
+            {
+                return selectedMeat.name;
+            }
+            return string.Empty;
+        }
+
+        public static int GetIdByMeat(string meatName)
+        {
+            meat selectedMeat = db.meats.FirstOrDefault(m => m.name == meatName);
+            if (selectedMeat != null)
+            {
+                return selectedMeat.Id;
+            }
+            return 0;
+        }
+
+
     }
 }
