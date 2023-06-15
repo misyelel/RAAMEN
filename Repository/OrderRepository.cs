@@ -14,6 +14,9 @@ namespace LABPSD_RAAMEN.Repository
         static Database1Entities1 db = DBSingleton.GetInstance();
         public static List<header> GetActiveOrders()
         {
+            // sebelum :
+            //List<header> h = db.headers.Where(x => x.staffID.Equals(null)).ToList();
+            // sesudah :
             List<header> h = db.headers.Where(x => x.staffID.Equals(0)).ToList();
             return h;
         }

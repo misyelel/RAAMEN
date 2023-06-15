@@ -16,7 +16,27 @@ namespace LABPSD_RAAMEN.View
 
         protected void reportBtn_Click(object sender, EventArgs e)
         {
-            Response.Redirect("../Admin/Transactions.aspx");
+            //Response.Redirect("../Admin/TransactionsReport.aspx");
+        }
+
+        protected void orderQBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("../Admin/OrderQueue.aspx");
+        }
+
+        protected void manageRamenBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("../Admin/ManageRamen.aspx");
+        }
+
+        protected void historyBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("../Admin/History.aspx");
+        }
+
+        protected void profileBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("../Admin/Profile.aspx");
         }
     }
 }

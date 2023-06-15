@@ -15,8 +15,12 @@ namespace LABPSD_RAAMEN.View.Staff
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            handledGridView.DataSource = OrderRepository.GetHandledOrders();
-            handledGridView.DataBind();
+            if (!IsPostBack)
+            {
+                handledGridView.DataSource = OrderRepository.GetHandledOrders();
+                handledGridView.DataBind();
+            }
+        
         }
 
         protected void btnBack_Click(object sender, EventArgs e)

@@ -14,8 +14,26 @@ namespace LABPSD_RAAMEN.Repository
             List<user> u = db.users.Where(x => x.roleID == 2).ToList();
 
             return u;
-
-
         }
+
+        public static List<header> GetHeader()
+        {
+            return db.headers.ToList();
+        }
+        public static decimal GetRamenPrice(int ramenID)
+        {
+            int price = 0;
+
+            
+            var ramen = db.ramen.FirstOrDefault(r => r.Id == ramenID);
+
+            if (ramen != null)
+            {
+                int.TryParse(ramen.price, out price);
+            }
+
+            return price;
+        }
+
     }
 }
