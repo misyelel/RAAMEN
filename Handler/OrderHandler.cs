@@ -36,6 +36,10 @@ namespace LABPSD_RAAMEN.Handler
             return OrderRepository.GetOrdersByUser(userId);
         }
 
+        public static List<header> GetAllHistory()
+        {
+            return OrderRepository.GetHistoryData();
+        }
         public static List<detail> GetDetails(int headerId)
         {
             return OrderRepository.GetDetailsByHeaderId(headerId);

@@ -38,5 +38,11 @@ namespace LABPSD_RAAMEN.View
         {
             Response.Redirect("../Admin/Profile.aspx");
         }
+
+        protected void logoutBtn_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Response.Redirect("../Guest/login.aspx");
+        }
     }
 }

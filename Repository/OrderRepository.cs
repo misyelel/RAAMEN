@@ -38,6 +38,11 @@ namespace LABPSD_RAAMEN.Repository
             return h;
         }
 
+        public static List<header> GetHistoryData()
+        {
+            List<header> h = db.headers.ToList();
+            return h;
+        }
         public static List<detail> GetDetailsByHeaderId(int headerId)
         {
             List<detail> d = db.details.Where(x => x.headerID == headerId).ToList();
