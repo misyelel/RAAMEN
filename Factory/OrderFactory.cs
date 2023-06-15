@@ -17,7 +17,9 @@ namespace LABPSD_RAAMEN.Factory
             header h = new header();
             h.Id = OrderController.generateHeaderId();
             h.customerID = customerId;
-            h.staffID = 2;
+            // sebelumnya :
+            // h.staffID = 2;
+            h.staffID = 0;
             h.date = DateTime.Now;
             return h;
         }

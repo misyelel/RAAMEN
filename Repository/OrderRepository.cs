@@ -14,7 +14,15 @@ namespace LABPSD_RAAMEN.Repository
         static Database1Entities1 db = DBSingleton.GetInstance();
         public static List<header> GetActiveOrders()
         {
-            List<header> h = db.headers.Where(x => x.staffID.Equals(null)).ToList();
+            // sebelum :
+            //List<header> h = db.headers.Where(x => x.staffID.Equals(null)).ToList();
+            // sesudah :
+            List<header> h = db.headers.Where(x => x.staffID.Equals(0)).ToList();
+            return h;
+        }
+        public static List<header> GetHandledOrders()
+        {
+            List<header> h = db.headers.ToList();
             return h;
         }
 
@@ -40,6 +48,17 @@ namespace LABPSD_RAAMEN.Repository
         {
             detail d = db.details.Where(x => x.ramenID == ramenId && x.headerID == headerId).FirstOrDefault();
             return d;
+        }
+        public static void UpdateHeaderStaffId(int headerId, int staffId)
+        {
+           
+                header headerToUpdate = db.headers.FirstOrDefault(h => h.Id == headerId);
+                if (headerToUpdate != null)
+                {
+                    headerToUpdate.staffID = staffId;
+                    db.SaveChanges();
+                }
+            
         }
     }
 }
