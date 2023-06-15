@@ -12,11 +12,11 @@
     <form id="form1" runat="server">
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-                <asp:Button ID="manageRamenBtn" runat="server" Text="Manage Ramen" />
-                <asp:Button ID="orderQBtn" runat="server" Text="Order Queue" />
-                <asp:Button ID="reportBtn" runat="server" Text="Report" />
-                <asp:Button ID="historyBtn" runat="server" Text="History" />
-                <asp:Button ID="profileBtn" runat="server" Text="Profile" />
+                <asp:Button ID="manageRamenBtn" runat="server" Text="Manage Ramen" OnClick="manageRamenBtn_Click" />
+                <asp:Button ID="orderQBtn" runat="server" Text="Order Queue" OnClick="orderQBtn_Click" />
+                <asp:Button ID="reportBtn" runat="server" Text="Transactions Report" OnClick="reportBtn_Click" />
+                <asp:Button ID="historyBtn" runat="server" Text="History" OnClick="historyBtn_Click" />
+                <asp:Button ID="profileBtn" runat="server" Text="Profile" OnClick="profileBtn_Click" />
                 <asp:Button ID="logoutBtn" runat="server" Text="Logout" />
             </asp:ContentPlaceHolder>
         </div>
