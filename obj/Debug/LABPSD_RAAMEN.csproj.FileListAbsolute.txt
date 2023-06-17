@@ -141,3 +141,20 @@ C:\Users\ragil\OneDrive\Documents\RAAMEN\bin\CrystalDecisions.ReportAppServer.Co
 C:\Users\ragil\OneDrive\Documents\RAAMEN\bin\CrystalDecisions.ReportAppServer.ObjectFactory.dll
 C:\Users\ragil\OneDrive\Documents\RAAMEN\bin\CrystalDecisions.ReportAppServer.CommonControls.dll
 C:\Users\ragil\OneDrive\Documents\RAAMEN\bin\stdole.dll
+D:\Documents\BINUS\SEM 4\PATTERN SOFTWARE DESIGN\PROJECT LAB\RAAMEN\bin\CrystalDecisions.CrystalReports.Engine.dll
+D:\Documents\BINUS\SEM 4\PATTERN SOFTWARE DESIGN\PROJECT LAB\RAAMEN\bin\CrystalDecisions.ReportSource.dll
+D:\Documents\BINUS\SEM 4\PATTERN SOFTWARE DESIGN\PROJECT LAB\RAAMEN\bin\CrystalDecisions.Shared.dll
+D:\Documents\BINUS\SEM 4\PATTERN SOFTWARE DESIGN\PROJECT LAB\RAAMEN\bin\CrystalDecisions.Web.dll
+D:\Documents\BINUS\SEM 4\PATTERN SOFTWARE DESIGN\PROJECT LAB\RAAMEN\bin\CrystalDecisions.ReportAppServer.DataDefModel.dll
+D:\Documents\BINUS\SEM 4\PATTERN SOFTWARE DESIGN\PROJECT LAB\RAAMEN\bin\CrystalDecisions.ReportAppServer.ClientDoc.dll
+D:\Documents\BINUS\SEM 4\PATTERN SOFTWARE DESIGN\PROJECT LAB\RAAMEN\bin\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+D:\Documents\BINUS\SEM 4\PATTERN SOFTWARE DESIGN\PROJECT LAB\RAAMEN\bin\CrystalDecisions.ReportAppServer.Controllers.dll
+D:\Documents\BINUS\SEM 4\PATTERN SOFTWARE DESIGN\PROJECT LAB\RAAMEN\bin\CrystalDecisions.ReportAppServer.CommLayer.dll
+D:\Documents\BINUS\SEM 4\PATTERN SOFTWARE DESIGN\PROJECT LAB\RAAMEN\bin\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+D:\Documents\BINUS\SEM 4\PATTERN SOFTWARE DESIGN\PROJECT LAB\RAAMEN\bin\CrystalDecisions.ReportAppServer.Prompting.dll
+D:\Documents\BINUS\SEM 4\PATTERN SOFTWARE DESIGN\PROJECT LAB\RAAMEN\bin\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+D:\Documents\BINUS\SEM 4\PATTERN SOFTWARE DESIGN\PROJECT LAB\RAAMEN\bin\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+D:\Documents\BINUS\SEM 4\PATTERN SOFTWARE DESIGN\PROJECT LAB\RAAMEN\bin\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+D:\Documents\BINUS\SEM 4\PATTERN SOFTWARE DESIGN\PROJECT LAB\RAAMEN\bin\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+D:\Documents\BINUS\SEM 4\PATTERN SOFTWARE DESIGN\PROJECT LAB\RAAMEN\bin\CrystalDecisions.ReportAppServer.CommonControls.dll
+D:\Documents\BINUS\SEM 4\PATTERN SOFTWARE DESIGN\PROJECT LAB\RAAMEN\bin\stdole.dll

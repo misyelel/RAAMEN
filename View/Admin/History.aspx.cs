@@ -20,8 +20,8 @@ namespace LABPSD_RAAMEN.View.Admin
         {
             if (!IsPostBack)
             {
-                user u = (user)Session["user"];
-                historyGridView.DataSource = OrderHandler.GetHistory(u.Id);
+                //user u = (user)Session["user"];
+                historyGridView.DataSource = OrderHandler.GetAllHistory();
                 historyGridView.DataBind();
             }
         }
