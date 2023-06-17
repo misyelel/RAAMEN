@@ -26,48 +26,54 @@ namespace LABPSD_RAAMEN.View.Admin
         }
 
         private DataSet1 GetData(List<header> headers)
-{
-    var dataSet = new DataSet1();
-    var headertable = dataSet.header;
-    var detailtable = dataSet.detail;
+        {
+            var dataSet = new DataSet1();
+            var headertable = dataSet.header;
+            var detailtable = dataSet.detail;
+            var incometable = dataSet.income;
 
-    decimal totalIncome = 0;
+            decimal totalIncome = 0;           
 
             foreach (header h in headers)
-            {
-                decimal subtotal = 0;
+                    {
+                        decimal subtotal = 0;
 
-                var hrow = headertable.NewRow();
-                hrow["Id"] = h.Id;
-                hrow["customerID"] = h.customerID;
-                hrow["staffID"] = h.staffID;
-                hrow["date"] = h.date;
+                        var hrow = headertable.NewRow();
+                        hrow["Id"] = h.Id;
+                        hrow["customerID"] = h.customerID;
+                        hrow["staffID"] = h.staffID;
+                        hrow["date"] = h.date;
 
-                headertable.Rows.Add(hrow);
+                        headertable.Rows.Add(hrow);
 
-                foreach (detail d in h.details)
-                {
-                    var drow = detailtable.NewRow();
-                    drow["headerID"] = d.headerID;
-                    drow["ramenID"] = d.ramenID;
-                    drow["quantity"] = d.quantity;
+                        foreach (detail d in h.details)
+                        {
+                            var drow = detailtable.NewRow();
+                            drow["headerID"] = d.headerID;
+                            drow["ramenID"] = d.ramenID;
+                            drow["quantity"] = d.quantity;
+                            drow["subtotal"] = d.quantity * int.Parse(d.raman.price);
 
-                    detailtable.Rows.Add(drow);
+                            detailtable.Rows.Add(drow);
 
-                    // Menghitung subtotal setiap transaksi
-                    decimal price = AdminRepository.GetRamenPrice(d.ramenID);// Ambil harga dari ramen berdasarkan d.ramenID
-                    subtotal += price * d.quantity;
-                }
+                            // Menghitung subtotal setiap transaksi
+                            decimal price = AdminRepository.GetRamenPrice(d.ramenID);// Ambil harga dari ramen berdasarkan d.ramenID
+                            subtotal += d.quantity * int.Parse(d.raman.price);
+                        }
 
                 // Menyimpan nilai subtotal pada kolom "Subtotal"
-                hrow["Subtotal"] = subtotal;
+                        hrow["Total"] = subtotal;
 
-                // Menambahkan subtotal ke total pendapatan
-                totalIncome += subtotal;
-            }
+                        // Menambahkan subtotal ke total pendapatan
+                        totalIncome += subtotal;
+                    }
 
-    return dataSet;
-}
+            var irow = incometable.NewRow();
+            irow["grandIncome"] = totalIncome;
+            incometable.Rows.Add(irow);
+
+            return dataSet;
+        }
 
     }
 }

@@ -16,6 +16,9 @@ namespace LABPSD_RAAMEN.View.Admin
             {
                 staffGridView.DataSource = AdminRepository.GetStaffData();
                 staffGridView.DataBind();
+
+                userGridView.DataSource = AdminRepository.GetCustomerData();
+                userGridView.DataBind();
             }
         }
     }
