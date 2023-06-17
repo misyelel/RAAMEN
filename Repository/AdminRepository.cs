@@ -16,6 +16,13 @@ namespace LABPSD_RAAMEN.Repository
             return u;
         }
 
+        public static List<user> GetCustomerData()
+        {
+            List<user> u = db.users.Where(x => x.roleID == 3).ToList();
+
+            return u;
+        }
+
         public static List<header> GetHeader()
         {
             return db.headers.ToList();

@@ -16,7 +16,7 @@ namespace LABPSD_RAAMEN.View
 
         protected void reportBtn_Click(object sender, EventArgs e)
         {
-            //Response.Redirect("../Admin/TransactionsReport.aspx");
+            Response.Redirect("../Admin/TransactionsReport.aspx");
         }
 
         protected void orderQBtn_Click(object sender, EventArgs e)

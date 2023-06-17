@@ -691,6 +691,9 @@
     <Compile Include="Controller\RamenController.cs" />
     <Compile Include="Controller\StaffController.cs" />
     <Compile Include="Controller\UserController.cs" />
+    <Compile Include="Dataset\DataSet1.cs">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Dataset\DataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
