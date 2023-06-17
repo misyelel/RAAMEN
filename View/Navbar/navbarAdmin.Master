@@ -1,0 +1,29 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="navbarAdmin.master.cs" Inherits="LABPSD_RAAMEN.View.navbarAdmin" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                <asp:Button ID="manageRamenBtn" runat="server" Text="Manage Ramen" OnClick="manageRamenBtn_Click" />
+                <asp:Button ID="orderQBtn" runat="server" Text="Order Queue" OnClick="orderQBtn_Click" />
+                <asp:Button ID="reportBtn" runat="server" Text="Transactions Report" OnClick="reportBtn_Click" />
+                <asp:Button ID="historyBtn" runat="server" Text="History" OnClick="historyBtn_Click" />
+                <asp:Button ID="profileBtn" runat="server" Text="Profile" OnClick="profileBtn_Click" />
+                <asp:Button ID="logoutBtn" runat="server" Text="Logout" OnClick="logoutBtn_Click" />
+            </asp:ContentPlaceHolder>
+        </div>
+        <div class="content">
+            <asp:ContentPlaceHolder ID="contentBody" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Database1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="detail">
+    <Key>
+      <PropertyRef Name="headerID" />
+      <PropertyRef Name="ramenID" />
+    </Key>
+    <Property Name="headerID" Type="int" Nullable="false" />
+    <Property Name="ramenID" Type="int" Nullable="false" />
+    <Property Name="quantity" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="header">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="customerID" Type="int" Nullable="false" />
+    <Property Name="staffID" Type="int" Nullable="false" />
+    <Property Name="date" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="meat">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ramen">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="meatID" Type="int" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="broth" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="price" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="roleID" Type="int" Nullable="false" />
+    <Property Name="username" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="gender" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_detail_ToheaderID">
+    <End Role="header" Type="Self.header" Multiplicity="1" />
+    <End Role="detail" Type="Self.detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="header">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="detail">
+        <PropertyRef Name="headerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_detail_ToramenID">
+    <End Role="ramen" Type="Self.ramen" Multiplicity="1" />
+    <End Role="detail" Type="Self.detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ramen">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="detail">
+        <PropertyRef Name="ramenID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_header_TocustomerID">
+    <End Role="user" Type="Self.user" Multiplicity="1" />
+    <End Role="header" Type="Self.header" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="header">
+        <PropertyRef Name="customerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ramen_TomeatID">
+    <End Role="meat" Type="Self.meat" Multiplicity="1" />
+    <End Role="ramen" Type="Self.ramen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="meat">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ramen">
+        <PropertyRef Name="meatID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_user_ToroleID">
+    <End Role="role" Type="Self.role" Multiplicity="1" />
+    <End Role="user" Type="Self.user" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="user">
+        <PropertyRef Name="roleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Database1ModelStoreContainer">
+    <EntitySet Name="detail" EntityType="Self.detail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="header" EntityType="Self.header" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="meat" EntityType="Self.meat" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ramen" EntityType="Self.ramen" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="role" EntityType="Self.role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_detail_ToheaderID" Association="Self.FK_detail_ToheaderID">
+      <End Role="header" EntitySet="header" />
+      <End Role="detail" EntitySet="detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_detail_ToramenID" Association="Self.FK_detail_ToramenID">
+      <End Role="ramen" EntitySet="ramen" />
+      <End Role="detail" EntitySet="detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_header_TocustomerID" Association="Self.FK_header_TocustomerID">
+      <End Role="user" EntitySet="user" />
+      <End Role="header" EntitySet="header" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ramen_TomeatID" Association="Self.FK_ramen_TomeatID">
+      <End Role="meat" EntitySet="meat" />
+      <End Role="ramen" EntitySet="ramen" />
+    </AssociationSet>
+    <AssociationSet Name="FK_user_ToroleID" Association="Self.FK_user_ToroleID">
+      <End Role="role" EntitySet="role" />
+      <End Role="user" EntitySet="user" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
