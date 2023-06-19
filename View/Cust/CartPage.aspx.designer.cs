@@ -24,6 +24,15 @@ namespace LABPSD_RAAMEN.View.Cust
         protected global::System.Web.UI.WebControls.Button backBtn;
 
         /// <summary>
+        /// btnBack control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnBack;
+
+        /// <summary>
         /// statusLabel control.
         /// </summary>
         /// <remarks>
