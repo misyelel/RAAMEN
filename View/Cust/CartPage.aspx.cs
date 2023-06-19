@@ -24,6 +24,7 @@ namespace LABPSD_RAAMEN.View.Cust
                 List<detail> orderDetails = (List<detail>)Session["order"];
                 if (h != null)
                 {
+                    btnBack.Visible = false;
                     cartGridView.Visible = true;
                     checkoutBtn.Visible = true;
 
@@ -32,6 +33,8 @@ namespace LABPSD_RAAMEN.View.Cust
                 }
                 else
                 {
+                    btnBack.Visible = true;
+                    backBtn.Visible = false;
                     statusLabel.Visible = true;
                     cartGridView.Visible = false;
                     checkoutBtn.Visible = false;
@@ -61,6 +64,27 @@ namespace LABPSD_RAAMEN.View.Cust
         protected void backBtn_Click(object sender, EventArgs e)
         {
             Response.Redirect("orderRamen.aspx");
+        }
+
+        protected void btnBack_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("orderRamen.aspx");
+        }
+
+        protected void cartGridView_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            int rowIndex = e.RowIndex;
+            List<detail> orderDetails = (List<detail>)Session["order"];
+
+            
+            orderDetails.RemoveAt(rowIndex);
+
+            
+            cartGridView.DataSource = orderDetails;
+            cartGridView.DataBind();
+
+            
+            Session["order"] = orderDetails;
         }
     }
 }

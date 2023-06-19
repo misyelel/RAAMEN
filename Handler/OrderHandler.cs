@@ -14,14 +14,24 @@ namespace LABPSD_RAAMEN.Handler
         static Database1Entities1 db = DBSingleton.GetInstance();
         public static bool checkHeaderId(int id)
         {
-            header h = (from x in db.headers
-                        where x.Id == id
-                        select x).FirstOrDefault();
-            if (h == null)
+            int? maxId = db.headers.Max(x => (int?)x.Id);
+
+            if (maxId.HasValue && id > maxId.Value)
             {
                 return true;
             }
             return false;
+        }
+
+        public static void DeleteLastHeader()
+        {
+            var lastHeader = db.headers.OrderByDescending(x => x.Id).FirstOrDefault();
+
+            if (lastHeader != null)
+            {
+                db.headers.Remove(lastHeader);
+                db.SaveChanges();
+            }
         }
 
         //public static List<detail> GetUserCart(int userId)
