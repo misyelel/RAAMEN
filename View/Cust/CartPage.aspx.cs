@@ -20,8 +20,34 @@ namespace LABPSD_RAAMEN.View.Cust
             if (!IsPostBack)
             {
                 user u = (user)Session["user"];
+                if (u == null || u.roleID != 3)
+                {
+                    Session.Clear();
+                    Response.Redirect("/View/Guest/login.aspx");
+                }
                 header h = (header)Session["cart"];
                 List<detail> orderDetails = (List<detail>)Session["order"];
+
+                if (orderDetails != null)
+                {
+                    if (orderDetails.Count.Equals(0))
+                    {
+                        Session.Remove("cart");
+                        Session.Remove("order");
+                        h = null;
+                        orderDetails = null;
+                        checkoutBtn.Visible = false;
+                    }
+                }
+                else
+                {
+                    Session.Remove("cart");
+                    Session.Remove("order");
+                    h = null;
+                    orderDetails = null;
+                    checkoutBtn.Visible = false;
+                }
+
                 if (h != null)
                 {
                     btnBack.Visible = false;
@@ -33,6 +59,7 @@ namespace LABPSD_RAAMEN.View.Cust
                 }
                 else
                 {
+                   
                     btnBack.Visible = true;
                     backBtn.Visible = false;
                     statusLabel.Visible = true;
@@ -85,6 +112,14 @@ namespace LABPSD_RAAMEN.View.Cust
 
             
             Session["order"] = orderDetails;
+            if (orderDetails.Count.Equals(0))
+            {
+                btnBack.Visible = true;
+                backBtn.Visible = false;
+                statusLabel.Visible = true;
+                cartGridView.Visible = false;
+                checkoutBtn.Visible = false;
+            }
         }
     }
 }

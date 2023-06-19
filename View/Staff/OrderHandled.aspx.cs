@@ -17,6 +17,12 @@ namespace LABPSD_RAAMEN.View.Staff
         {
             if (!IsPostBack)
             {
+                user u = (user)Session["user"];
+                if (u == null || u.roleID != 2)
+                {
+                    Session.Clear();
+                    Response.Redirect("/View/Guest/login.aspx");
+                }
                 handledGridView.DataSource = OrderRepository.GetHandledOrders();
                 handledGridView.DataBind();
             }

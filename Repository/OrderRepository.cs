@@ -22,7 +22,7 @@ namespace LABPSD_RAAMEN.Repository
         }
         public static List<header> GetHandledOrders()
         {
-            List<header> h = db.headers.ToList();
+            List<header> h = db.headers.Where(x => x.staffID!=0).ToList();
             return h;
         }
 
@@ -64,6 +64,12 @@ namespace LABPSD_RAAMEN.Repository
                     db.SaveChanges();
                 }
             
+        }
+
+        public static detail GetDetailByRamenId(int ramenId)
+        {
+            detail d = db.details.Where(x => x.ramenID == ramenId).FirstOrDefault();
+            return d;
         }
     }
 }

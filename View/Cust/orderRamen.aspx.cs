@@ -20,6 +20,11 @@ namespace LABPSD_RAAMEN.View
             if (!IsPostBack)
             {
                 user u = (user)Session["user"];
+                if (u==null || u.roleID != 3)
+                {
+                    Session.Clear();
+                    Response.Redirect("/View/Guest/login.aspx");
+                }
                 ramenGridView.DataSource = RamenRepository.GetAllRamen();
                 ramenGridView.DataBind();
             }
@@ -47,10 +52,17 @@ namespace LABPSD_RAAMEN.View
             h = (header)Session["cart"];
             List<detail> orderDetails = (List<detail>)Session["order"];
 
-            if (OrderRepository.FindRamen(h.Id, ramenId) != null)
+            detail ramenDetail = orderDetails.Where(x => x.ramenID == ramenId && x.headerID==h.Id).FirstOrDefault();
+
+            if (ramenDetail!= null)
             {
-                detail d = OrderRepository.FindRamen(h.Id, ramenId);
-                d.quantity++;
+                //detail d = OrderRepository.FindRamen(h.Id, ramenId);
+                //detail d = orderDetails.Where(x => x.ramenID == ramenId).FirstOrDefault();
+                //d.quantity++;
+                int prevQ = orderDetails.Where(x => x.ramenID == ramenId).Select(x => x.quantity).FirstOrDefault();
+                orderDetails.Remove(orderDetails.Where(x => x.ramenID == ramenId).FirstOrDefault());
+                orderDetails.Add(OrderFactory.AddDetail(h.Id, ramenId, prevQ+1));
+                Session["order"] = orderDetails;
             }
             else
             {
