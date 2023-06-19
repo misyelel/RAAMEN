@@ -19,6 +19,12 @@ namespace LABPSD_RAAMEN.View.Admin
         static Database1Entities1 db = DBSingleton.GetInstance();
         protected void Page_Load(object sender, EventArgs e)
         {
+            user u = (user)Session["user"];
+            if (u == null || u.roleID != 1)
+            {
+                Session.Clear();
+                Response.Redirect("/View/Guest/login.aspx");
+            }
             CrystalReport1 report = new CrystalReport1();
             CrystalReportViewer1.ReportSource = report;
             DataSet1 data = GetData(AdminHandler.GetDataHeader());

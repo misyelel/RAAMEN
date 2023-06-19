@@ -54,5 +54,10 @@ namespace LABPSD_RAAMEN.Handler
         {
             return OrderRepository.GetDetailsByHeaderId(headerId);
         }
+
+        public static detail GetDetailByRamenId(int id)
+        {
+            return OrderRepository.GetDetailByRamenId(id);
+        }
     }
 }

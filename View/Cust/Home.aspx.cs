@@ -12,8 +12,17 @@ namespace LABPSD_RAAMEN.View.Cust
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            user u = (user)Session["user"];
-            nameLabel.Text = u.username;
+            if (!IsPostBack)
+            {
+                user u = (user)Session["user"];
+                if (u==null || u.roleID != 3)
+                {
+                    Session.Clear();
+                    Response.Redirect("/View/Guest/login.aspx");
+                }
+                nameLabel.Text = u.username;
+            }
+            
         }
     }
 }

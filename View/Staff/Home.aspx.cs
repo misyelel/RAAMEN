@@ -8,6 +8,7 @@ using LABPSD_RAAMEN.Controller;
 using LABPSD_RAAMEN.Factory;
 using LABPSD_RAAMEN.Handler;
 using LABPSD_RAAMEN.Repository;
+using LABPSD_RAAMEN.Model;
 
 namespace LABPSD_RAAMEN.View.Staff
 {
@@ -16,7 +17,15 @@ namespace LABPSD_RAAMEN.View.Staff
     
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            if (!IsPostBack)
+            {
+                user u = (user)Session["user"];
+                if (u == null || u.roleID != 2)
+                {
+                    Session.Clear();
+                    Response.Redirect("/View/Guest/login.aspx");
+                }
+            }
             userGridView.DataSource = StaffRepository
                 .GetUserData();
             userGridView.DataBind();

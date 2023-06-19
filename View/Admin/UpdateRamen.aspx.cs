@@ -18,6 +18,12 @@ namespace LABPSD_RAAMEN.View.Admin
         {
             if (!IsPostBack)
             {
+                user u = (user)Session["user"];
+                if (u == null || u.roleID != 1)
+                {
+                    Session.Clear();
+                    Response.Redirect("/View/Guest/login.aspx");
+                }
                 ddlMeat.DataSource = StaffRepository.GetAllMeat();
                 ddlMeat.DataBind();
 

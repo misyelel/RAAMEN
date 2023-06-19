@@ -21,6 +21,11 @@ namespace LABPSD_RAAMEN.View
             if (!IsPostBack)
             {
                 user u = (user)Session["user"];
+                if (u == null || u.roleID != 3)
+                {
+                    Session.Clear();
+                    Response.Redirect("/View/Guest/login.aspx");
+                }
                 showData(u);
             }
         }

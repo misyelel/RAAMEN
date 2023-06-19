@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using LABPSD_RAAMEN.Handler;
+using LABPSD_RAAMEN.Model;
+using LABPSD_RAAMEN.Repository;
 
 namespace LABPSD_RAAMEN.Controller
 {
@@ -21,6 +23,12 @@ namespace LABPSD_RAAMEN.Controller
             }
 
             return id;
+        }
+
+        public static int GetRamenQuantityFromDetail(int id)
+        {
+            detail d = OrderHandler.GetDetailByRamenId(id);
+            return d.quantity;
         }
 
 
